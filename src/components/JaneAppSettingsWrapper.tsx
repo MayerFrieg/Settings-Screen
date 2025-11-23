@@ -63,8 +63,9 @@ import JaneAppNewTax from "./settings/JaneAppNewTax";
 import JaneAppEditTax from "./settings/JaneAppEditTax";
 import JaneAppMergeHistory from "./settings/JaneAppMergeHistory";
 import JaneAppScheduleImport from "./settings/JaneAppScheduleImport";
+import JaneAppAllDocumentation from "./settings/JaneAppAllDocumentation";
 
-type ActiveView = "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "create-entry" | "jane-subscription" | "clinic-info" | "locations" | "create-location" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "add-reminder" | "messaging" | "staff-permissions" | "dashboard-permissions" | "supervision" | "new-supervisory-relationship" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "new-discipline" | "treatments" | "new-treatment" | "reassign-treatments" | "products" | "new-product" | "billing-settings" | "reconciliation-date" | "adjustments" | "new-adjustment" | "edit-adjustment" | "billing-codes" | "new-billing-code" | "fees" | "new-fee" | "payment-methods" | "new-payment-method" | "edit-payment-method" | "income-categories" | "new-income-category" | "edit-income-category" | "taxes" | "new-tax" | "edit-tax" | "merge-history" | "schedule-import" | "schedule-settings" | "forms-surveys" | "new-intake-form" | "clinical-surveys" | "new-clinical-survey" | "integrations" | "workshop";
+type ActiveView = "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "create-entry" | "jane-subscription" | "clinic-info" | "locations" | "create-location" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "add-reminder" | "messaging" | "staff-permissions" | "dashboard-permissions" | "supervision" | "new-supervisory-relationship" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "new-discipline" | "treatments" | "new-treatment" | "reassign-treatments" | "products" | "new-product" | "billing-settings" | "reconciliation-date" | "adjustments" | "new-adjustment" | "edit-adjustment" | "billing-codes" | "new-billing-code" | "fees" | "new-fee" | "payment-methods" | "new-payment-method" | "edit-payment-method" | "income-categories" | "new-income-category" | "edit-income-category" | "taxes" | "new-tax" | "edit-tax" | "merge-history" | "schedule-import" | "schedule-settings" | "forms-surveys" | "new-intake-form" | "clinical-surveys" | "new-clinical-survey" | "integrations" | "workshop" | "documentation";
 
 export default function JaneAppSettingsWrapper() {
   const [activeView, setActiveView] = useState<ActiveView>("dashboard");
@@ -432,6 +433,7 @@ export default function JaneAppSettingsWrapper() {
       {activeView === "new-clinical-survey" && <JaneAppNewClinicalSurvey onReturn={handleReturnToSurveys} />}
       {activeView === "integrations" && <JaneAppIntegrations />}
       {activeView === "workshop" && <JaneAppWorkshop />}
+      {activeView === "documentation" && <JaneAppAllDocumentation />}
     </JaneAppLayout>
   );
 }

@@ -133,24 +133,65 @@ export default function Home() {
           {screens.map((screen) => {
             const isCarePatron = screen.title === "CarePatron";
             const isColib = screen.title === "Colib";
-            const isClickable = isCarePatron || isColib;
-            const CardWrapper = isClickable ? Link : "div";
-            const wrapperProps = isClickable ? { href: screen.slug } : {};
+            const isJanApp = screen.title === "Jan App";
+            const isClickable = isCarePatron || isColib || isJanApp;
+
+            if (isClickable) {
+              return (
+                <Link
+                  key={screen.slug}
+                  href={screen.slug}
+                  className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_65px_rgba(0,0,0,0.55)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,0.6)] cursor-pointer`}
+                >
+                  <div
+                    className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${screen.accent} opacity-75 transition duration-300 group-hover:opacity-100`}
+                  />
+                  <div className="relative flex h-full flex-col gap-5">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="space-y-2">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-wide text-slate-100/85">
+                          {screen.badge}
+                        </div>
+                        <h2 className="text-2xl font-semibold">{screen.title}</h2>
+                        <p className="max-w-xl text-slate-200/80">{screen.description}</p>
+                        <div className="flex flex-wrap gap-2 pt-2 text-xs font-semibold uppercase tracking-wide text-slate-100/80">
+                          {screen.highlights.map((item) => (
+                            <span
+                              key={item}
+                              className="rounded-full border border-white/20 bg-black/20 px-3 py-1 shadow-inner shadow-black/30"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-slate-950/80 text-slate-100 transition group-hover:border-white/30 group-hover:bg-white/10">
+                        <span className="text-xl">&rarr;</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-black/20 px-3 py-3 text-sm text-slate-200/80">
+                      {screen.metrics.map((metric) => (
+                        <div key={metric.label} className="space-y-1 rounded-xl bg-white/5 px-3 py-2">
+                          <p className="text-xs uppercase tracking-wide text-slate-300/70">
+                            {metric.label}
+                          </p>
+                          <p className="text-base font-semibold">{metric.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              );
+            }
 
             return (
-              <CardWrapper
+              <div
                 key={screen.slug}
-                {...wrapperProps}
-                className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_65px_rgba(0,0,0,0.55)] ${
-                  isClickable
-                    ? "transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,0.6)] cursor-pointer"
-                    : ""
-                }`}
+                className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_65px_rgba(0,0,0,0.55)]`}
               >
                 <div
-                  className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${screen.accent} ${
-                    isClickable ? "opacity-75 transition duration-300 group-hover:opacity-100" : "opacity-50"
-                  }`}
+                  className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${screen.accent} opacity-50`}
                 />
                 <div className="relative flex h-full flex-col gap-5">
                   <div className="flex items-center justify-between gap-4">
@@ -171,18 +212,8 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
-                    <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 ${
-                        isClickable
-                          ? "bg-slate-950/80 text-slate-100 transition group-hover:border-white/30 group-hover:bg-white/10"
-                          : "bg-slate-950/80 text-slate-100"
-                      }`}
-                    >
-                      {isClickable ? (
-                        <span className="text-xl">&rarr;</span>
-                      ) : (
-                        <span className="text-lg">🔒</span>
-                      )}
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-slate-950/80 text-slate-100">
+                      <span className="text-lg">🔒</span>
                     </div>
                   </div>
 
@@ -197,13 +228,11 @@ export default function Home() {
                     ))}
                   </div>
 
-                  {!isClickable && (
-                    <div className="mt-2 flex items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 px-4 py-3">
-                      <p className="text-sm font-semibold text-amber-200">Coming Soon</p>
-                    </div>
-                  )}
+                  <div className="mt-2 flex items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 px-4 py-3">
+                    <p className="text-sm font-semibold text-amber-200">Coming Soon</p>
+                  </div>
                 </div>
-              </CardWrapper>
+              </div>
             );
           })}
         </section>

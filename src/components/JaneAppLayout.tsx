@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 
 interface JaneAppLayoutProps {
   children: ReactNode;
-  activeMenuItem?: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "messaging" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop" | "staff-permissions" | "dashboard-permissions" | "supervision" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "treatments" | "products" | "billing-settings" | "reconciliation-date" | "adjustments" | "billing-codes" | "fees" | "payment-methods" | "income-categories" | "taxes" | "merge-history" | "schedule-import";
-  onMenuItemClick?: (item: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "messaging" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop" | "staff-permissions" | "dashboard-permissions" | "supervision" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "treatments" | "products" | "billing-settings" | "reconciliation-date" | "adjustments" | "billing-codes" | "fees" | "payment-methods" | "income-categories" | "taxes" | "merge-history" | "schedule-import") => void;
+  activeMenuItem?: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "messaging" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop" | "documentation" | "staff-permissions" | "dashboard-permissions" | "supervision" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "treatments" | "products" | "billing-settings" | "reconciliation-date" | "adjustments" | "billing-codes" | "fees" | "payment-methods" | "income-categories" | "taxes" | "merge-history" | "schedule-import";
+  onMenuItemClick?: (item: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "messaging" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop" | "documentation" | "staff-permissions" | "dashboard-permissions" | "supervision" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "treatments" | "products" | "billing-settings" | "reconciliation-date" | "adjustments" | "billing-codes" | "fees" | "payment-methods" | "income-categories" | "taxes" | "merge-history" | "schedule-import") => void;
 }
 
 export default function JaneAppLayout({ children, activeMenuItem = "dashboard", onMenuItemClick }: JaneAppLayoutProps) {
@@ -363,6 +363,16 @@ export default function JaneAppLayout({ children, activeMenuItem = "dashboard", 
                   }`}
                 >
                   Workshop
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("documentation")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "documentation" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Documentation
                 </button>
               </nav>
             </div>
