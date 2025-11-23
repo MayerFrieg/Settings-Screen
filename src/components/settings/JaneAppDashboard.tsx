@@ -1,6 +1,13 @@
+"use client";
+
+import JaneAppDocumentation from "./JaneAppDocumentation";
+
 export default function JaneAppDashboard() {
   return (
     <div className="space-y-6">
+      {/* Documentation */}
+      <JaneAppDocumentation section="dashboard" />
+
       {/* Title */}
       <h1 className="text-4xl font-light text-gray-400">Dashboard</h1>
 

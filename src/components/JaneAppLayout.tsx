@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 
 interface JaneAppLayoutProps {
   children: ReactNode;
-  activeMenuItem?: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop";
-  onMenuItemClick?: (item: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop") => void;
+  activeMenuItem?: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "messaging" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop" | "staff-permissions" | "dashboard-permissions" | "supervision" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "treatments" | "products" | "billing-settings" | "reconciliation-date" | "adjustments" | "billing-codes" | "fees" | "payment-methods" | "income-categories" | "taxes" | "merge-history" | "schedule-import";
+  onMenuItemClick?: (item: "dashboard" | "account-recommendations" | "jane-payments" | "address-book" | "jane-subscription" | "clinic-info" | "locations" | "security" | "branding" | "language" | "emails" | "mass-welcome-email" | "online-booking" | "reminders-notifications" | "messaging" | "schedule-settings" | "forms-surveys" | "integrations" | "workshop" | "staff-permissions" | "dashboard-permissions" | "supervision" | "wait-lists" | "patient-form-fields" | "test-patient" | "online-appointments-for-groups" | "ai-scribe" | "disciplines" | "treatments" | "products" | "billing-settings" | "reconciliation-date" | "adjustments" | "billing-codes" | "fees" | "payment-methods" | "income-categories" | "taxes" | "merge-history" | "schedule-import") => void;
 }
 
 export default function JaneAppLayout({ children, activeMenuItem = "dashboard", onMenuItemClick }: JaneAppLayoutProps) {
@@ -30,9 +30,12 @@ export default function JaneAppLayout({ children, activeMenuItem = "dashboard", 
         </div>
 
         {/* Center Logo */}
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <span className="text-white font-semibold text-lg">Jane GraceHealth</span>
-        </div>
+        <button
+          onClick={() => window.location.href = '/'}
+          className="absolute left-1/2 transform -translate-x-1/2 text-white font-semibold text-lg hover:text-white/90 transition cursor-pointer"
+        >
+          Jane GraceHealth
+        </button>
 
         {/* Right Side */}
         <div className="flex items-center gap-4">
@@ -226,6 +229,102 @@ export default function JaneAppLayout({ children, activeMenuItem = "dashboard", 
                   Reminders & Notifications
                 </button>
                 <button
+                  onClick={() => onMenuItemClick?.("messaging")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "messaging" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Messaging
+                  <span className="ml-auto px-2 py-0.5 text-xs font-semibold text-purple-700 bg-purple-100 rounded">
+                    BETA
+                  </span>
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("staff-permissions")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "staff-permissions" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Staff Permissions
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("dashboard-permissions")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "dashboard-permissions" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Dashboard Permissions
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("supervision")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "supervision" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Supervision
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("wait-lists")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "wait-lists" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Wait Lists
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("patient-form-fields")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "patient-form-fields" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Patient Form Fields
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("test-patient")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "test-patient" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Test Patient
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("online-appointments-for-groups")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "online-appointments-for-groups" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Online Appointments for Groups
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("ai-scribe")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "ai-scribe" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  AI Scribe
+                  <span className="ml-auto px-2 py-0.5 text-xs font-semibold text-orange-700 bg-orange-100 rounded">
+                    New
+                  </span>
+                </button>
+                <button
                   onClick={() => onMenuItemClick?.("schedule-settings")}
                   className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
                     activeMenuItem === "schedule-settings" 
@@ -264,6 +363,153 @@ export default function JaneAppLayout({ children, activeMenuItem = "dashboard", 
                   }`}
                 >
                   Workshop
+                </button>
+              </nav>
+            </div>
+
+            {/* Offerings Section */}
+            <div className="mt-6">
+              <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Offerings</h2>
+              <nav className="space-y-1">
+                <button
+                  onClick={() => onMenuItemClick?.("disciplines")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "disciplines" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Disciplines
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("treatments")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "treatments" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Treatments, Classes & Group Appointments
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("products")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "products" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Products
+                </button>
+              </nav>
+            </div>
+
+            {/* Billing Section */}
+            <div className="mt-6">
+              <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Billing</h2>
+              <nav className="space-y-1">
+                <button
+                  onClick={() => onMenuItemClick?.("billing-settings")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "billing-settings" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Billing Settings
+                  <span className="ml-auto px-2 py-0.5 text-xs font-semibold text-orange-700 bg-orange-100 rounded">
+                    New
+                  </span>
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("reconciliation-date")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "reconciliation-date" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Reconciliation Date
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("adjustments")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "adjustments" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Adjustments
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("billing-codes")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "billing-codes" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Billing Codes
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("fees")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "fees" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Fees
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("payment-methods")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "payment-methods" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Payment Methods
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("income-categories")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "income-categories" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Income Categories
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("taxes")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "taxes" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Taxes
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("merge-history")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "merge-history" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Merge History
+                </button>
+                <button
+                  onClick={() => onMenuItemClick?.("schedule-import")}
+                  className={`w-full text-left flex items-center gap-2 px-3 py-2 text-sm rounded-lg ${
+                    activeMenuItem === "schedule-import" 
+                      ? "bg-teal-50 text-teal-700 font-medium" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  Schedule an Import
                 </button>
               </nav>
             </div>
