@@ -9,9 +9,9 @@ const screens = [
     accent: "from-amber-400/40 via-orange-400/20 to-transparent",
     highlights: ["Calendar guardrails", "Payment protections", "Client messaging cues"],
     metrics: [
-      { label: "No-show buffer", value: "10 min" },
-      { label: "Statements", value: "Auto, weekly" },
-      { label: "Reminders", value: "SMS + email" },
+      { label: "Active clients", value: "1,240" },
+      { label: "Monthly revenue", value: "$89K" },
+      { label: "Uptime", value: "99.9%" },
     ],
   },
   {
@@ -22,9 +22,9 @@ const screens = [
     accent: "from-teal-300/40 via-emerald-300/20 to-transparent",
     highlights: ["Cross-clinic routing", "Escalation ladder", "Session QA"],
     metrics: [
-      { label: "Regions live", value: "6" },
-      { label: "Escalation SLA", value: "15 min" },
-      { label: "On-call", value: "Weekend cover" },
+      { label: "Team members", value: "142" },
+      { label: "Sessions/month", value: "3.2K" },
+      { label: "Response time", value: "< 2 min" },
     ],
   },
   {
@@ -35,9 +35,9 @@ const screens = [
     accent: "from-cyan-300/40 via-sky-400/20 to-transparent",
     highlights: ["Reflection cadence", "AI safety rails", "Tone guidance"],
     metrics: [
-      { label: "Prompts", value: "Curated daily" },
-      { label: "AI limit", value: "12 replies/day" },
-      { label: "Export", value: "End-to-end" },
+      { label: "Active users", value: "8.5K" },
+      { label: "Daily entries", value: "2.1K" },
+      { label: "Satisfaction", value: "4.8/5" },
     ],
   },
   {
@@ -48,9 +48,9 @@ const screens = [
     accent: "from-lime-300/50 via-emerald-300/20 to-transparent",
     highlights: ["Cohort dosing", "Facilitator roles", "Privacy defaults"],
     metrics: [
-      { label: "Groups active", value: "12" },
-      { label: "Privacy preset", value: "Tight" },
-      { label: "Check-ins", value: "Twice weekly" },
+      { label: "Active groups", value: "24" },
+      { label: "Participants", value: "312" },
+      { label: "Completion rate", value: "87%" },
     ],
   },
 ];
