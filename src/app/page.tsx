@@ -132,22 +132,24 @@ export default function Home() {
         <section className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {screens.map((screen) => {
             const isCarePatron = screen.title === "CarePatron";
-            const CardWrapper = isCarePatron ? Link : "div";
-            const wrapperProps = isCarePatron ? { href: screen.slug } : {};
+            const isColib = screen.title === "Colib";
+            const isClickable = isCarePatron || isColib;
+            const CardWrapper = isClickable ? Link : "div";
+            const wrapperProps = isClickable ? { href: screen.slug } : {};
 
             return (
               <CardWrapper
                 key={screen.slug}
                 {...wrapperProps}
                 className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_65px_rgba(0,0,0,0.55)] ${
-                  isCarePatron
+                  isClickable
                     ? "transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(0,0,0,0.6)] cursor-pointer"
                     : ""
                 }`}
               >
                 <div
                   className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${screen.accent} ${
-                    isCarePatron ? "opacity-75 transition duration-300 group-hover:opacity-100" : "opacity-50"
+                    isClickable ? "opacity-75 transition duration-300 group-hover:opacity-100" : "opacity-50"
                   }`}
                 />
                 <div className="relative flex h-full flex-col gap-5">
@@ -171,12 +173,12 @@ export default function Home() {
                     </div>
                     <div
                       className={`flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 ${
-                        isCarePatron
+                        isClickable
                           ? "bg-slate-950/80 text-slate-100 transition group-hover:border-white/30 group-hover:bg-white/10"
                           : "bg-slate-950/80 text-slate-100"
                       }`}
                     >
-                      {isCarePatron ? (
+                      {isClickable ? (
                         <span className="text-xl">&rarr;</span>
                       ) : (
                         <span className="text-lg">🔒</span>
@@ -195,7 +197,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  {!isCarePatron && (
+                  {!isClickable && (
                     <div className="mt-2 flex items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 px-4 py-3">
                       <p className="text-sm font-semibold text-amber-200">Coming Soon</p>
                     </div>
