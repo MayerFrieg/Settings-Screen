@@ -134,7 +134,8 @@ export default function Home() {
             const isCarePatron = screen.title === "CarePatron";
             const isColib = screen.title === "Colib";
             const isJanApp = screen.title === "Jan App";
-            const isClickable = isCarePatron || isColib || isJanApp;
+            const isSimplePractice = screen.title === "SimplePractice";
+            const isClickable = isCarePatron || isColib || isJanApp || isSimplePractice;
 
             if (isClickable) {
               return (
@@ -235,6 +236,55 @@ export default function Home() {
               </div>
             );
           })}
+        </section>
+
+        <section className="mt-10 grid grid-cols-1">
+          <Link
+            href="/comparison"
+            className="relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_65px_rgba(0,0,0,0.55)] transition hover:-translate-y-1 hover:shadow-[0_26px_90px_rgba(0,0,0,0.65)]"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/15 via-emerald-300/10 to-cyan-300/10 opacity-80 transition duration-300" />
+            <div className="relative space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-wide text-slate-100/85">
+                Comparison
+              </div>
+              <h2 className="text-2xl font-semibold text-white">How the four workspaces differ</h2>
+              <p className="text-slate-200/85 text-sm max-w-4xl">
+                Open the comparison view to see tone, guardrails, and operational focus side-by-side for SimplePractice,
+                CarePatron, Jan App, and Colib.
+              </p>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <div className="rounded-2xl border border-white/15 bg-white/5 p-4 shadow-inner shadow-black/30">
+                  <div className="text-xs uppercase tracking-wide text-amber-100/80 font-semibold">SimplePractice</div>
+                  <p className="mt-2 text-sm text-slate-100/85">
+                    Calm, therapist-first. Strong billing and portal guardrails for predictable revenue.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/15 bg-white/5 p-4 shadow-inner shadow-black/30">
+                  <div className="text-xs uppercase tracking-wide text-emerald-100/80 font-semibold">CarePatron</div>
+                  <p className="mt-2 text-sm text-slate-100/85">
+                    Distributed teams. Cross-clinic routing, escalation ladders, and role clarity.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/15 bg-white/5 p-4 shadow-inner shadow-black/30">
+                  <div className="text-xs uppercase tracking-wide text-cyan-100/80 font-semibold">Jan App</div>
+                  <p className="mt-2 text-sm text-slate-100/85">
+                    AI-assisted journaling. Tone guidance, reflection cadence, and clinician oversight.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/15 bg-white/5 p-4 shadow-inner shadow-black/30">
+                  <div className="text-xs uppercase tracking-wide text-lime-100/80 font-semibold">Colib</div>
+                  <p className="mt-2 text-sm text-slate-100/85">
+                    Group programs. Cohort dosing, facilitator roles, and privacy-balanced community.
+                  </p>
+                </div>
+              </div>
+              <div className="inline-flex items-center gap-2 text-sm font-semibold text-slate-100">
+                <span>Open comparison</span>
+                <span className="text-lg leading-none">→</span>
+              </div>
+            </div>
+          </Link>
         </section>
       </div>
     </main>
