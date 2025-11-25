@@ -1174,3 +1174,4 @@ export default function SimplePracticeDocumentation({ section }: { section: Sect
   );
 }
 
+
